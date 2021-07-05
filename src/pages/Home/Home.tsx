@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
+import AppBar from '../../components/AppBar';
 
 const Home: FC = () => (
   <div>
-    <p>Главная страница</p>
+    <AppBar />
   </div>
 );
 
