@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core';
-import background from '../../assets/background.jpg';
+import background from './assets/background.jpg';
 
 export const useStyles = makeStyles(() => ({
   hero: {
