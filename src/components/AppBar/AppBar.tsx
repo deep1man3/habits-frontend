@@ -1,13 +1,8 @@
 import React, { FC } from 'react';
-import {
-  Toolbar,
-  Typography,
-  AppBar as MuiAppBar,
-  Grid,
-  Box,
-} from '@material-ui/core';
+import { Toolbar, AppBar as MuiAppBar, Grid, Box } from '@material-ui/core';
 import { useStyles } from './AppBar.styles';
 import Link from '../Link';
+import Logo from '../Logo';
 
 const AppBar: FC = () => {
   const classes = useStyles();
@@ -17,9 +12,7 @@ const AppBar: FC = () => {
       <Toolbar className={classes.toolbar}>
         <Grid container justify="space-between" alignItems="center">
           <Grid item>
-            <Typography variant="h6" className={classes.logo}>
-              Habits
-            </Typography>
+            <Logo />
           </Grid>
           <Grid item>
             <Box component="span" mr={2}>
