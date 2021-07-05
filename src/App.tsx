@@ -1,5 +1,6 @@
 import React from 'react';
+import Router from './Router';
 
-const App = () => <div>Habits App</div>;
+const App = () => <Router />;
 
 export default App;
