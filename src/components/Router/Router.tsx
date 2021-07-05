@@ -1,11 +1,12 @@
 import React, { FC } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Home from '../../pages/Home';
 
 const Router: FC = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path="/">
-        <p>Главная страница</p>
+        <Home />
       </Route>
     </Switch>
   </BrowserRouter>
