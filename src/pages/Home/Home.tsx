@@ -1,14 +1,12 @@
 import { Box } from '@material-ui/core';
-import React, { FC } from 'react';
-import AppBar from '../../components/AppBar';
+import React from 'react';
 import { useStyles } from './Home.styles';
 
-const Home: FC = () => {
+const Home = () => {
   const classes = useStyles();
 
   return (
     <>
-      <AppBar />
       <Box className={classes.hero} height="calc(100vh - 56px)" />
     </>
   );

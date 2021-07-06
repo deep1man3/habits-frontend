@@ -1,6 +1,6 @@
-import { CssBaseline } from '@material-ui/core';
 import React from 'react';
-import Router from './components/Router';
+import { CssBaseline } from '@material-ui/core';
+import Router from './routing';
 
 const App = () => (
   <>
