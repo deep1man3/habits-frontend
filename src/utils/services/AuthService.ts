@@ -9,4 +9,12 @@ export default class AuthService {
   ): Promise<AxiosPromise<AuthResponse>> {
     return $api.post<AuthResponse>('/auth/login', { login, password });
   }
+
+  static async registration(
+    name: string,
+    email: string,
+    password: string
+  ): Promise<AxiosPromise<AuthResponse>> {
+    return $api.post<AuthResponse>('/users/create', { name, email, password });
+  }
 }
