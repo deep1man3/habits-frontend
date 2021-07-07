@@ -3,6 +3,7 @@ import { Grid, TextField, Typography } from '@material-ui/core';
 import { Controller, useForm } from 'react-hook-form';
 import FormWrapper from '../../components/lowLevel/FormWrapper';
 import Button from '../../components/lowLevel/Button';
+import AuthService from '../../utils/services';
 
 const SignUp = () => {
   const {
@@ -15,7 +16,13 @@ const SignUp = () => {
   return (
     <>
       <FormWrapper>
-        <form onSubmit={handleSubmit((data) => console.log(data))}>
+        <form
+          onSubmit={handleSubmit((data) =>
+            AuthService.registration(data.name, data.email, data.password).then(
+              (response) => console.log(response)
+            )
+          )}
+        >
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <Typography variant="h4" align="center" color="primary">
