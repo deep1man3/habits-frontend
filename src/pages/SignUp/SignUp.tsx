@@ -69,6 +69,10 @@ const SignUp = () => {
                 control={control}
                 defaultValue=""
                 name="password"
+                rules={{
+                  validate: (value) =>
+                    value === watch('confirmPassword') || 'Пароли не совпадают',
+                }}
                 render={({ field }) => (
                   <TextField
                     // eslint-disable-next-line
