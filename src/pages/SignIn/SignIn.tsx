@@ -10,6 +10,7 @@ import { Visibility, VisibilityOff } from '@material-ui/icons';
 import { useForm, Controller } from 'react-hook-form';
 import FormWrapper from '../../components/lowLevel/FormWrapper';
 import Button from '../../components/lowLevel/Button';
+import AuthService from '../../utils/services';
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -18,7 +19,13 @@ const SignIn = () => {
   return (
     <>
       <FormWrapper>
-        <form onSubmit={handleSubmit((data) => console.log(data))}>
+        <form
+          onSubmit={handleSubmit((data) =>
+            AuthService.login(data.email, data.password).then((response) =>
+              console.log(response)
+            )
+          )}
+        >
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <Typography variant="h4" align="center" color="primary">
@@ -28,7 +35,7 @@ const SignIn = () => {
             <Grid item xs={12}>
               <Controller
                 control={control}
-                defaultValue=""
+                defaultValue="john.doe@habits.foo"
                 name="email"
                 render={({ field }) => (
                   <TextField
@@ -47,7 +54,7 @@ const SignIn = () => {
             <Grid item xs={12}>
               <Controller
                 control={control}
-                defaultValue=""
+                defaultValue="1q2w3e4r"
                 name="password"
                 render={({ field }) => (
                   <TextField
