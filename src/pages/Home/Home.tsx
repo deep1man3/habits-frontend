@@ -7,7 +7,7 @@ const Home = () => {
 
   return (
     <>
-      <Box className={classes.hero} height="calc(100vh - 56px)" />
+      <Box className={classes.hero} />
     </>
   );
 };
