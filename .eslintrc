@@ -1,39 +1,1 @@
-{
-  "extends": [
-    "airbnb-typescript",
-    "react-app",
-    "prettier"
-  ],
-  "parser": "@typescript-eslint/parser",
-  "plugins": [
-    "prettier",
-    "@typescript-eslint"
-  ],
-  "rules": {
-    "react/destructuring-assignment": "off",
-    "react/jsx-curly-newline": "off",
-    "prettier/prettier": "warn",
-    "react/prop-types": 0,
-    "react/jsx-wrap-multilines": "off",
-    "no-use-before-define": 0,
-    "@typescript-eslint/no-use-before-define": 0,
-    "no-console": "off",
-    "import/prefer-default-export": "off",
-    "no-param-reassign": "off"
-  },
-  "env": {
-    "browser": true
-  },
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "paths": [
-          "src"
-        ]
-      }
-    }
-  },
-  "parserOptions": {
-    "project": "./tsconfig.json"
-  }
-}
+{  "extends": [    "airbnb-typescript",    "react-app",    "prettier"  ],  "parser": "@typescript-eslint/parser",  "plugins": [    "prettier",    "@typescript-eslint"  ],  "rules": {    "react/destructuring-assignment": "off",    "react/jsx-curly-newline": "off",    "prettier/prettier": ["warn",      {        "endOfLine": "auto"      }],    "react/prop-types": 0,    "react/jsx-wrap-multilines": "off",    "no-use-before-define": 0,    "@typescript-eslint/no-use-before-define": 0,    "no-console": "off",    "import/prefer-default-export": "off",    "no-param-reassign": "off"  },  "env": {    "browser": true  },  "settings": {    "import/resolver": {      "node": {        "paths": [          "src"        ]      }    }  },  "parserOptions": {    "project": "./tsconfig.json"  }}
