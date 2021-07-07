@@ -1,11 +1,12 @@
 import React from 'react';
+import { CssBaseline } from '@material-ui/core';
+import Router from './routing';
 
-const App = () => {
-  return (
-    <div>
-      Habits App
-    </div>
-  );
-};
+const App = () => (
+  <>
+    <CssBaseline />
+    <Router />
+  </>
+);
 
 export default App;
