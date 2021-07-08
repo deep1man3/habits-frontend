@@ -2,7 +2,14 @@ import React, { PropsWithChildren } from 'react';
 import { Grid, Button as MuiButton } from '@material-ui/core';
 import { useStyles } from './Button.styles';
 
-const Button = ({ children }: PropsWithChildren<any>) => {
+interface ButtonProps {
+  loading?: boolean;
+}
+
+const Button = ({
+  loading = false,
+  children,
+}: PropsWithChildren<ButtonProps>) => {
   const classes = useStyles();
 
   return (
@@ -14,8 +21,9 @@ const Button = ({ children }: PropsWithChildren<any>) => {
         disableElevation
         fullWidth
         className={classes.button}
+        disabled={loading}
       >
-        {children}
+        {loading ? 'Загрузка...' : children}
       </MuiButton>
     </Grid>
   );

@@ -7,25 +7,28 @@ import {
   Typography,
 } from '@material-ui/core';
 import { Visibility, VisibilityOff } from '@material-ui/icons';
-import { useForm, Controller } from 'react-hook-form';
+import { useForm, Controller, SubmitHandler } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 import FormWrapper from '../../components/lowLevel/FormWrapper';
 import Button from '../../components/lowLevel/Button';
-import AuthService from '../../utils/services';
+import { SignInUserData } from '../../types/auth.types';
+import { signin } from '../../store/auth/asyncActions';
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const { control, handleSubmit } = useForm();
+  const dispatch = useDispatch();
+
+  const handleSignIn: SubmitHandler<SignInUserData> = (data) => {
+    setIsLoading(true);
+    dispatch(signin({ data, onError: () => setIsLoading(false) }));
+  };
 
   return (
     <>
       <FormWrapper>
-        <form
-          onSubmit={handleSubmit((data) =>
-            AuthService.login(data.email, data.password).then((response) =>
-              console.log(response)
-            )
-          )}
-        >
+        <form onSubmit={handleSubmit(handleSignIn)}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <Typography variant="h4" align="center" color="primary">
@@ -36,7 +39,7 @@ const SignIn = () => {
               <Controller
                 control={control}
                 defaultValue="john.doe@habits.foo"
-                name="email"
+                name="login"
                 render={({ field }) => (
                   <TextField
                     // eslint-disable-next-line
@@ -83,7 +86,7 @@ const SignIn = () => {
                 )}
               />
             </Grid>
-            <Button>Войти</Button>
+            <Button loading={isLoading}>Войти</Button>
           </Grid>
         </form>
       </FormWrapper>
