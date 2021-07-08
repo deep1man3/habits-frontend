@@ -5,7 +5,7 @@ export const useStyles = (maxWidth: number, boxShadow: string) =>
     root: {
       height: '100%',
     },
-    form: {
+    paper: {
       padding: theme.spacing(2),
       border: '1px solid #E0E0E0',
       maxWidth,

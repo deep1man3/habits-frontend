@@ -1,19 +1,13 @@
-export interface SignInData {
-  data: SignInUserData;
-  onError: () => void;
-}
-
-export interface SignInUserData {
+export interface SignInUserDirtyFormData {
   login: string;
   password: string;
 }
 
 export interface AuthState {
-  user: UserData | null;
-  authenticated: boolean;
+  user?: User | null;
 }
 
-export interface UserData {
+export interface User {
   id: number;
   name: string;
   email: string;

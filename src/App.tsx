@@ -5,12 +5,10 @@ import store from './store';
 import Router from './routing';
 
 const App = () => (
-  <>
-    <Provider store={store}>
-      <CssBaseline />
-      <Router />
-    </Provider>
-  </>
+  <Provider store={store}>
+    <CssBaseline />
+    <Router />
+  </Provider>
 );
 
 export default App;

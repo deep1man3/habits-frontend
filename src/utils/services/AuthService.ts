@@ -1,20 +1,43 @@
 import { AxiosPromise } from 'axios';
-import { AuthResponse } from '../../types/response/AuthResponse';
+import {} from 'react-router-dom';
 import $api from '../api';
+import { AuthResponseDTO } from '../../types/DTO/AuthResponseDTO';
+import store from '../../store';
+import { authActions } from '../../store/auth/slice';
 
 export default class AuthService {
-  static async login(
+  static async processLogin(
     login: string,
-    password: string
-  ): Promise<AxiosPromise<AuthResponse>> {
-    return $api.post<AuthResponse>('/auth/login', { login, password });
+    password: string,
+    onSuccess?: () => void,
+    onFinally?: () => void
+  ): Promise<void> {
+    const response = await $api
+      .post<AuthResponseDTO>('/auth/login', {
+        login,
+        password,
+      })
+      .finally(() => {
+        onFinally && onFinally();
+      });
+
+    if (!response.data.user) throw new Error('Не прилетел пользователь!');
+    if (!response.data.token) throw new Error('Не прилетел токен!');
+
+    localStorage.setItem('habits:token', `${response.data.token}`);
+    store.dispatch(authActions.setUser(response.data.user));
+    onSuccess && onSuccess();
   }
 
-  static async registration(
+  static async createUser(
     name: string,
     email: string,
     password: string
-  ): Promise<AxiosPromise<AuthResponse>> {
-    return $api.post<AuthResponse>('/users/create', { name, email, password });
+  ): Promise<AxiosPromise<AuthResponseDTO>> {
+    return $api.post<AuthResponseDTO>('/users/create', {
+      name,
+      email,
+      password,
+    });
   }
 }

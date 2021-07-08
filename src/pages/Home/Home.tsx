@@ -5,11 +5,7 @@ import { useStyles } from './Home.styles';
 const Home = () => {
   const classes = useStyles();
 
-  return (
-    <>
-      <Box className={classes.hero} />
-    </>
-  );
+  return <Box className={classes.hero} />;
 };
 
 export default Home;

@@ -1,17 +1,17 @@
-import { Grid, Paper } from '@material-ui/core';
 import React, { PropsWithChildren } from 'react';
-import { useStyles } from './FormWrapper.styles';
+import { Grid, Paper } from '@material-ui/core';
+import { useStyles } from './CentredPageContentWrapper.styles';
 
-interface FormWrapperProps {
+interface CentredPageContentProps {
   maxWidth?: number;
   boxShadow?: string;
 }
 
-const FormWrapper = ({
+const CentredPageContentWrapper = ({
   maxWidth = 480,
   boxShadow = 'none',
   children,
-}: PropsWithChildren<FormWrapperProps>) => {
+}: PropsWithChildren<CentredPageContentProps>) => {
   const classes = useStyles(maxWidth, boxShadow)();
 
   return (
@@ -22,9 +22,9 @@ const FormWrapper = ({
       alignContent="center"
       className={classes.root}
     >
-      <Paper className={classes.form}>{children}</Paper>
+      <Paper className={classes.paper}>{children}</Paper>
     </Grid>
   );
 };
 
-export default FormWrapper;
+export default CentredPageContentWrapper;
