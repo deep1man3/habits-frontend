@@ -7,7 +7,7 @@ export const signin = createAsyncThunk(
   async ({ data: { login, password }, onError }: SignInData) => {
     try {
       const response = await AuthService.login(login, password);
-      console.log(response.data);
+      localStorage.setItem('token', `${response.data}`);
     } catch (e) {
       console.log('sign-in error: ', e);
       onError();
