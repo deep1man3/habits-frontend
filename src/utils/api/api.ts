@@ -8,7 +8,7 @@ const $api = axios.create({
 });
 
 $api.interceptors.request.use((config) => {
-  config.headers.Authorization = `Bearer ${localStorage.getItem('habits:token')}`;
+  config.headers.Authorization = `${localStorage.getItem('habits:token')}`;
   return config;
 });
 
