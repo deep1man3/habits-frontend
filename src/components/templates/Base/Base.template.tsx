@@ -8,6 +8,8 @@ interface BaseTemplateProps {}
 const BaseTemplate = ({ children }: PropsWithChildren<BaseTemplateProps>) => {
   const classes = useStyles();
 
+  console.log('BaseTemplate: re-render');
+
   return (
     <>
       <AppBar />
