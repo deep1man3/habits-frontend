@@ -7,5 +7,6 @@ export const useStyles = makeStyles(() => ({
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'top center',
     backgroundSize: 'cover',
+    height: '100%',
   },
 }));
