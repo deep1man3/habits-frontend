@@ -1,8 +1,8 @@
 import React from 'react';
 import { Toolbar, AppBar as MuiAppBar, Grid, Box } from '@material-ui/core';
 import { useStyles } from './AppBar.styles';
-import { Link } from '../../../../routing';
-import Logo from '../../../lowLevel/Logo';
+import { Link } from '../../../routing';
+import Logo from '../Logo';
 
 const AppBar = () => {
   const classes = useStyles();

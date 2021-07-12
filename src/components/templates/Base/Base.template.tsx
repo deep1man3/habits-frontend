@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react';
 import { Box } from '@material-ui/core';
-import AppBar from './AppBar';
+import AppBar from '../../lowLevel/AppBar';
 import { useStyles } from './Base.styles';
 
 interface BaseTemplateProps {}
