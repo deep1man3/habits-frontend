@@ -7,6 +7,7 @@ import SignUp from '../../pages/SignUp';
 import DashboardTemplate from '../../components/templates/Dashboard';
 import Dashboard from '../../pages/Dashboard';
 import SmartRoute from '../SmartRoute';
+import { PrivacyType } from '../../types/routes.types';
 
 const Router = () => (
   <BrowserRouter>
@@ -14,7 +15,12 @@ const Router = () => (
       <Route path="/dashboard/:path?" exact>
         <DashboardTemplate>
           <Switch>
-            <SmartRoute path="/dashboard" exact page={Dashboard} privacyType />
+            <SmartRoute
+              path="/dashboard"
+              exact
+              page={Dashboard}
+              privacyType={PrivacyType.Private}
+            />
             <Route path="/*" exact render={() => <div>404</div>} />
           </Switch>
         </DashboardTemplate>
@@ -23,8 +29,18 @@ const Router = () => (
         <BaseTemplate>
           <Switch>
             <SmartRoute path="/" exact page={Home} />
-            <SmartRoute path="/sign-in" exact page={SignIn} />
-            <SmartRoute path="/sign-up" exact page={SignUp} />
+            <SmartRoute
+              path="/sign-in"
+              exact
+              page={SignIn}
+              privacyType={PrivacyType.Session}
+            />
+            <SmartRoute
+              path="/sign-up"
+              exact
+              page={SignUp}
+              privacyType={PrivacyType.Session}
+            />
             <Route path="/*" exact render={() => <div>404</div>} />
           </Switch>
         </BaseTemplate>
