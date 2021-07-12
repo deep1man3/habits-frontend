@@ -20,6 +20,8 @@ const SignIn = () => {
   const { control, handleSubmit } = useForm();
   const history = useHistory();
 
+  console.log('SignIn: re-render');
+
   const handleSignIn: SubmitHandler<SignInUserDirtyFormData> = ({
     login,
     password,

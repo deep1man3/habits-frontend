@@ -13,6 +13,8 @@ const SignUp = () => {
     formState: { errors },
   } = useForm();
 
+  console.log('SignUp: re-render');
+
   return (
     <CentredPageContentWrapper>
       <form

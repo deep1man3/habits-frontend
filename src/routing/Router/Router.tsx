@@ -6,6 +6,7 @@ import SignIn from '../../pages/SignIn';
 import SignUp from '../../pages/SignUp';
 import DashboardTemplate from '../../components/templates/Dashboard';
 import Dashboard from '../../pages/Dashboard';
+import SmartRoute from '../SmartRoute';
 
 const Router = () => (
   <BrowserRouter>
@@ -13,7 +14,7 @@ const Router = () => (
       <Route path="/dashboard/:path?" exact>
         <DashboardTemplate>
           <Switch>
-            <Route path="/dashboard" exact render={() => <Dashboard />} />
+            <SmartRoute path="/dashboard" exact page={Dashboard} privacyType />
             <Route path="/*" exact render={() => <div>404</div>} />
           </Switch>
         </DashboardTemplate>
@@ -21,9 +22,9 @@ const Router = () => (
       <Route>
         <BaseTemplate>
           <Switch>
-            <Route path="/" exact render={() => <Home />} />
-            <Route path="/sign-in" exact render={() => <SignIn />} />
-            <Route path="/sign-up" exact render={() => <SignUp />} />
+            <SmartRoute path="/" exact page={Home} />
+            <SmartRoute path="/sign-in" exact page={SignIn} />
+            <SmartRoute path="/sign-up" exact page={SignUp} />
             <Route path="/*" exact render={() => <div>404</div>} />
           </Switch>
         </BaseTemplate>
