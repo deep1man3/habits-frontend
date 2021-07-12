@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from 'react';
-import { Link } from 'react-router-dom';
+import Drawer from '../../lowLevel/Drawer/Drawer';
 
 const DashboardTemplate = ({ children }: PropsWithChildren<unknown>) => {
   console.log('DashboardTemplate: re-render');
@@ -7,7 +7,7 @@ const DashboardTemplate = ({ children }: PropsWithChildren<unknown>) => {
   return (
     <div>
       Dashboard
-      <Link to="/">Home</Link>
+      <Drawer>123</Drawer>
       {children}
     </div>
   );
