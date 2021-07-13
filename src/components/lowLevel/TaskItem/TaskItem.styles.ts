@@ -4,8 +4,7 @@ export const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
     width: '100%',
-    [theme.breakpoints.down('md')]: {
-      margin: theme.spacing(2),
+    [theme.breakpoints.down('xs')]: {
       textAlign: 'center',
     },
     marginBottom: theme.spacing(2),
@@ -15,6 +14,9 @@ export const useStyles = makeStyles((theme) => ({
   },
   label: {
     marginBottom: theme.spacing(2),
+    [theme.breakpoints.down('xs')]: {
+      width: '100%',
+    },
   },
   task: {
     minHeight: '150px',
