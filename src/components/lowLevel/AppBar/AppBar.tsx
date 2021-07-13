@@ -1,29 +1,22 @@
-import React from 'react';
-import { Toolbar, AppBar as MuiAppBar, Grid, Box } from '@material-ui/core';
+import React, { PropsWithChildren } from 'react';
+import { Toolbar, AppBar as MuiAppBar, AppBarProps } from '@material-ui/core';
+import clsx from 'clsx';
 import { useStyles } from './AppBar.styles';
-import { Link } from '../../../routing';
-import Logo from '../Logo';
 
-const AppBar = () => {
+const AppBar = ({
+  className,
+  children,
+  ...rest
+}: PropsWithChildren<AppBarProps>) => {
   const classes = useStyles();
 
   return (
-    <MuiAppBar position="static" className={classes.root}>
-      <Toolbar className={classes.toolbar}>
-        <Grid container justify="space-between" alignItems="center">
-          <Grid item>
-            <Logo />
-          </Grid>
-          <Grid item>
-            <Box component="span" mr={2}>
-              <Link to="/sign-in" label="Войти" />
-            </Box>
-            <Box component="span">
-              <Link to="/sign-up" label="Зарегистрироваться" />
-            </Box>
-          </Grid>
-        </Grid>
-      </Toolbar>
+    <MuiAppBar
+      className={clsx(classes.root, className)}
+      position="static"
+      {...rest}
+    >
+      <Toolbar>{children}</Toolbar>
     </MuiAppBar>
   );
 };

@@ -4,7 +4,4 @@ export const useStyles = makeStyles(() => ({
   root: {
     boxShadow: 'none',
   },
-  toolbar: {
-    minHeight: '56px',
-  },
 }));
