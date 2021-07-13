@@ -11,14 +11,8 @@ export default class TaskService {
     const response = await $api.get<TaskResponseDTO[]>('/tasks').finally(() => {
       onFinally && onFinally();
     });
-    const TasksArray = response.data.map((task) => ({
-      id: task.id,
-      done: task.done,
-      donePercent: task.donePercent,
-      completeDate: task.completeDate,
-      habit: task.habit,
-    }));
-    store.dispatch(tasksActions.setTasks(TasksArray));
+
+    store.dispatch(tasksActions.setTasks(response.data));
     onSuccess && onSuccess();
   }
 }
