@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core';
 
-export const useStyle = makeStyles(() => ({
+export const useStyles = makeStyles(() => ({
   drawerContent: {
     width: 280,
   },
