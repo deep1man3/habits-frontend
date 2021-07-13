@@ -1,7 +1,8 @@
-import React, { PropsWithChildren } from 'react';
+import React, { PropsWithChildren, useEffect, useState } from 'react';
 import {
   Drawer as MuiDrawer,
   DrawerProps,
+  Toolbar,
   useMediaQuery,
   useTheme,
 } from '@material-ui/core';
@@ -10,25 +11,41 @@ import { useStyles } from './Drawer.styles';
 import { useSelector } from '../../../../store';
 import { metaActions } from '../../../../store/meta/slice';
 
-const Drawer = ({ children, ...rest }: PropsWithChildren<DrawerProps>) => {
+const Drawer = ({
+  variant = 'temporary',
+  children,
+  ...rest
+}: PropsWithChildren<DrawerProps>) => {
+  const [drawerVariant, setDrawerVariant] = useState(variant);
   const classes = useStyles();
   const theme = useTheme();
   const isNotMobile = useMediaQuery(theme.breakpoints.up('md'));
-  const isLarge = useMediaQuery(theme.breakpoints.up('xl'));
+  const isLarge = useMediaQuery(theme.breakpoints.up('lg'));
 
   const dispatch = useDispatch();
   const isDrawerOpen = useSelector((state) => state.meta.isDrawerOpen);
+
+  useEffect(() => {
+    if (isLarge) {
+      setDrawerVariant('permanent');
+    } else if (isNotMobile) {
+      setDrawerVariant('persistent');
+    } else {
+      setDrawerVariant('temporary');
+    }
+  }, [isNotMobile, isLarge]);
 
   return (
     <MuiDrawer
       classes={{
         paper: classes.drawerContent,
       }}
-      variant={isNotMobile ? 'persistent' : 'temporary'}
-      open={isLarge ? true : isDrawerOpen}
+      variant={drawerVariant}
+      open={isDrawerOpen}
       onClose={() => dispatch(metaActions.toggleDrawerOpen())}
       {...rest}
     >
+      {!isLarge && isNotMobile && <Toolbar />}
       {children}
     </MuiDrawer>
   );
