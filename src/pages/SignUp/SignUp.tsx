@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, TextField, Typography } from '@material-ui/core';
 import { Controller, useForm } from 'react-hook-form';
-import AuthService from '../../utils/services';
+import AuthService from '../../utils/services/authService';
 import CentredPageContentWrapper from '../../components/lowLevel/CentredPageContentWrapper/CentredPageContentWrapper';
 import SubmitFormButton from '../../components/lowLevel/SubmitFormButton';
 
