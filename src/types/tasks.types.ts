@@ -1,6 +1,8 @@
 import Habit from './habits.types';
 
-export type TasksState = Task[] | null;
+export interface TasksState {
+  tasks: Task[] | null;
+}
 
 export interface Task {
   id: number;
