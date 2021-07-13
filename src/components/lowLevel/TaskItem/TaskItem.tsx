@@ -28,10 +28,8 @@ const TaskItem = () => {
             <WithProgressionTaskIcon />
           </Grid>
           <Grid item container xs={12} md={9}>
-            <Grid item>
-              <Typography variant="h4" className={classes.label}>
-                Lorem ipsum
-              </Typography>
+            <Grid item className={classes.label}>
+              <Typography variant="h4">Lorem ipsum</Typography>
             </Grid>
             <Grid item>
               <Typography variant="body2" component="p">
