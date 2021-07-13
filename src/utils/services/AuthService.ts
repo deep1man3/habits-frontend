@@ -1,5 +1,4 @@
 import { AxiosPromise } from 'axios';
-import {} from 'react-router-dom';
 import $api from '../api';
 import { AuthResponseDTO } from '../../types/DTO/AuthResponseDTO';
 import store from '../../store';
@@ -39,5 +38,11 @@ export default class AuthService {
       email,
       password,
     });
+  }
+
+  static async processLogout(onSuccess?: () => void): Promise<void> {
+    localStorage.removeItem('habits:token');
+    store.dispatch(authActions.setUser(null));
+    onSuccess && onSuccess();
   }
 }
