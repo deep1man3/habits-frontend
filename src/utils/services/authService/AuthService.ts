@@ -1,8 +1,8 @@
 import { AxiosPromise } from 'axios';
-import $api from '../api';
-import { AuthResponseDTO } from '../../types/DTO/AuthResponseDTO';
-import store from '../../store';
-import { authActions } from '../../store/auth/slice';
+import $api from '../../api';
+import { AuthResponseDTO } from '../../../types/DTO/AuthResponseDTO';
+import store from '../../../store';
+import { authActions } from '../../../store/auth/slice';
 
 export default class AuthService {
   static async processLogin(
