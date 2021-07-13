@@ -2,8 +2,12 @@ import React from 'react';
 import { Checkbox, Grid, Paper, Typography } from '@material-ui/core';
 import { useStyles } from './TaskItem.styles';
 import WithProgressionTaskIcon from '../../assets/WithProgressionTaskIcon';
+import CommonTaskIcon from '../../assets/CommonTaskIcon';
+import { Task } from '../../../types/tasks.types';
 
-const TaskItem = () => {
+type TaskItemProps = Task;
+
+const TaskItem = (task: TaskItemProps) => {
   const classes = useStyles();
 
   return (
@@ -25,26 +29,22 @@ const TaskItem = () => {
             xs={12}
             md={2}
           >
-            <WithProgressionTaskIcon />
+            {task.habit.type === 1 ? (
+              <WithProgressionTaskIcon />
+            ) : (
+              <CommonTaskIcon />
+            )}
           </Grid>
           <Grid item container xs={12} md={9}>
             <Grid item className={classes.label}>
-              <Typography variant="h4">Lorem ipsum</Typography>
+              <Typography variant="h4">{task.habit.name}</Typography>
             </Grid>
-            <Grid item>
-              <Typography variant="body2" component="p">
-                {`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.`}
-              </Typography>
+            <Grid item className={classes.description}>
+              <Typography variant="body2">{task.habit.description}</Typography>
             </Grid>
           </Grid>
           <Grid item container xs={12} md={1} justify="center">
-            <Checkbox defaultChecked color="primary" />
+            <Checkbox color="primary" checked={task.done} />
           </Grid>
         </Grid>
       </Paper>
