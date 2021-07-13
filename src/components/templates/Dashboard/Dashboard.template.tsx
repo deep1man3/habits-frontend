@@ -8,14 +8,15 @@ import Logo from '../../lowLevel/Logo';
 import ProfileBox from './ProfileBox';
 import AppBar from '../../lowLevel/AppBar';
 import { metaActions } from '../../../store/meta/slice';
+import MainContent from './MainContent';
 
 const DashboardTemplate = ({ children }: PropsWithChildren<unknown>) => {
   const dispatch = useDispatch();
 
   return (
     <div>
-      <Hidden mdUp>
-        <AppBar>
+      <Hidden lgUp>
+        <AppBar position="relative">
           <IconButton
             color="inherit"
             onClick={() => dispatch(metaActions.toggleDrawerOpen())}
@@ -35,7 +36,7 @@ const DashboardTemplate = ({ children }: PropsWithChildren<unknown>) => {
         <Divider />
         <ProfileBox />
       </Drawer>
-      {children}
+      <MainContent>{children}</MainContent>
     </div>
   );
 };
