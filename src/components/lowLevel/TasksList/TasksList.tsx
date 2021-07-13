@@ -15,7 +15,7 @@ const TasksList = () => {
     <Grid container justify="center">
       {tasks &&
         tasks.length > 0 &&
-        tasks.map((task) => <TaskItem key={task.id} />)}
+        tasks.map((task) => <TaskItem key={task.id} {...task} />)}
     </Grid>
   );
 };
