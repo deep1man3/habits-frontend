@@ -8,7 +8,7 @@ const slice = createSlice({
   name: 'meta',
   initialState,
   reducers: {
-    toggleSidebar: (state) => {
+    toggleDrawerOpen: (state) => {
       state.isDrawerOpen = !state.isDrawerOpen;
     },
   },
