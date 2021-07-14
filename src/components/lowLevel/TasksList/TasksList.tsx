@@ -8,7 +8,9 @@ const TasksList = () => {
   const { tasks } = useSelector((state) => state.tasks);
 
   useEffect(() => {
-    TaskService.getTasks();
+    if (localStorage.getItem('habits:token')) {
+      TaskService.getTasks();
+    }
   }, []);
 
   if (!tasks) {
