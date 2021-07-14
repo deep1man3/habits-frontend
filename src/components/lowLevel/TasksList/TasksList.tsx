@@ -8,9 +8,8 @@ const TasksList = () => {
   const { tasks } = useSelector((state) => state.tasks);
 
   useEffect(() => {
-    TaskService.getTasks(() => console.log('Задачи загрузились'));
+    TaskService.getTasks();
   }, []);
-
   return (
     <Grid container justify="center">
       {tasks &&
