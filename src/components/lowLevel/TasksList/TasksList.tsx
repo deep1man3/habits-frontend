@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Grid } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 import TaskItem from '../TaskItem';
 import TaskService from '../../../utils/services/taskService';
 import { useSelector } from '../../../store';
@@ -10,6 +10,11 @@ const TasksList = () => {
   useEffect(() => {
     TaskService.getTasks();
   }, []);
+
+  if (!tasks) {
+    return <Typography>Ваш список задач пуст!</Typography>;
+  }
+
   return (
     <Grid container justify="center">
       {tasks &&
@@ -18,5 +23,4 @@ const TasksList = () => {
     </Grid>
   );
 };
-
 export default TasksList;
