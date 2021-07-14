@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useEffect, useState } from 'react';
+import React, { PropsWithChildren } from 'react';
 import {
   Drawer as MuiDrawer,
   DrawerProps,
@@ -16,7 +16,6 @@ const Drawer = ({
   children,
   ...rest
 }: PropsWithChildren<DrawerProps>) => {
-  const [drawerVariant, setDrawerVariant] = useState(variant);
   const classes = useStyles();
   const theme = useTheme();
   const isNotMobile = useMediaQuery(theme.breakpoints.up('md'));
@@ -25,22 +24,12 @@ const Drawer = ({
   const dispatch = useDispatch();
   const isDrawerOpen = useSelector((state) => state.meta.isDrawerOpen);
 
-  useEffect(() => {
-    if (isLarge) {
-      setDrawerVariant('permanent');
-    } else if (isNotMobile) {
-      setDrawerVariant('persistent');
-    } else {
-      setDrawerVariant('temporary');
-    }
-  }, [isNotMobile, isLarge]);
-
   return (
     <MuiDrawer
       classes={{
         paper: classes.drawerContent,
       }}
-      variant={drawerVariant}
+      variant={isLarge ? 'permanent' : 'temporary'}
       open={isDrawerOpen}
       onClose={() => dispatch(metaActions.toggleDrawerOpen())}
       {...rest}
