@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { MetaState } from '../../types/meta.types';
 
-const initialState = {
+const initialState: MetaState = {
   isDrawerOpen: false,
 };
 
