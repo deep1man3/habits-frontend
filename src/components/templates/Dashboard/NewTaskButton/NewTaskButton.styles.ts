@@ -5,5 +5,9 @@ export const useStyles = makeStyles((theme) => ({
     position: 'fixed',
     bottom: theme.spacing(8),
     right: theme.spacing(8),
+    [theme.breakpoints.down('md')]: {
+      bottom: theme.spacing(4),
+      right: theme.spacing(4),
+    },
   },
 }));
