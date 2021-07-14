@@ -20,10 +20,8 @@ const Drawer = ({
   const theme = useTheme();
   const isNotMobile = useMediaQuery(theme.breakpoints.up('md'));
   const isLarge = useMediaQuery(theme.breakpoints.up('lg'));
-
   const dispatch = useDispatch();
   const isDrawerOpen = useSelector((state) => state.meta.isDrawerOpen);
-
   return (
     <MuiDrawer
       classes={{
