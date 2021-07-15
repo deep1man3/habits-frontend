@@ -43,11 +43,11 @@ const DialogProgressDoneTask = ({
     >
       <Slider
         valueLabelDisplay="auto"
-        defaultValue={50}
+        defaultValue={100}
         step={10}
         marks
         min={0}
-        max={100}
+        max={200}
         onChange={handleChange}
       />
     </Dialog>
