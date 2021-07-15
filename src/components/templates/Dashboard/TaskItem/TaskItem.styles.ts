@@ -11,6 +11,9 @@ export const useStyles = makeStyles((theme) => ({
   },
   icon: {
     fontSize: '128px',
+    [theme.breakpoints.down('md')]: {
+      fontSize: '64px',
+    },
   },
   label: {
     marginBottom: theme.spacing(2),
