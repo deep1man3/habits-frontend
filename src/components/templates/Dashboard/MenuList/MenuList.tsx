@@ -5,6 +5,8 @@ import {
   ListItem,
   ListItemText,
   Typography,
+  useTheme,
+  useMediaQuery,
 } from '@material-ui/core';
 import InboxIcon from '@material-ui/icons/Inbox';
 import EventAvailableIcon from '@material-ui/icons/EventAvailable';
@@ -15,13 +17,17 @@ import { metaActions } from '../../../../store/meta/slice';
 
 const MenuList = () => {
   const classes = useStyles();
+  const theme = useTheme();
+  const isMdDown = useMediaQuery(theme.breakpoints.down('md'));
 
   const dispatch = useDispatch();
   const history = useHistory();
 
   const handleClick = (link: string) => {
     history.push(link);
-    dispatch(metaActions.toggleDrawerOpen());
+    if (isMdDown) {
+      dispatch(metaActions.toggleDrawerOpen());
+    }
   };
 
   return (
