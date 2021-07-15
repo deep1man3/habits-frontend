@@ -4,7 +4,7 @@ export const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
     width: '100%',
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
       textAlign: 'center',
     },
     marginBottom: theme.spacing(2),
@@ -24,6 +24,9 @@ export const useStyles = makeStyles((theme) => ({
     '& h4': {
       [theme.breakpoints.down('md')]: {
         fontSize: '1.75rem',
+      },
+      [theme.breakpoints.down('sm')]: {
+        fontSize: '1.25rem',
       },
     },
   },
