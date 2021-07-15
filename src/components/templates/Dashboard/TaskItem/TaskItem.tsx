@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Checkbox, Grid, Paper, Typography } from '@material-ui/core';
+import TrendingFlatIcon from '@material-ui/icons/TrendingFlat';
+import ShowChartIcon from '@material-ui/icons/ShowChart';
 import { useStyles } from './TaskItem.styles';
-import WithProgressionTaskIcon from '../../../assets/WithProgressionTaskIcon';
-import CommonTaskIcon from '../../../assets/CommonTaskIcon';
+
 import { Task } from '../../../../types/tasks.types';
 import DialogProgressDoneTask from '../DialogProgressDoneTask';
 
@@ -36,11 +37,7 @@ const TaskItem = (task: TaskItemProps) => {
               xs={12}
               md={2}
             >
-              {task.habit.type === 1 ? (
-                <WithProgressionTaskIcon />
-              ) : (
-                <CommonTaskIcon />
-              )}
+              {task.habit.type === 1 ? <ShowChartIcon /> : <TrendingFlatIcon />}
             </Grid>
             <Grid item container xs={12} md={9}>
               <Grid item className={classes.label}>
