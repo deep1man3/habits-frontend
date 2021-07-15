@@ -9,6 +9,7 @@ import ProfileBox from './ProfileBox';
 import AppBar from '../../lowLevel/AppBar';
 import { metaActions } from '../../../store/meta/slice';
 import MainContent from './MainContent';
+import NewTaskButton from './NewTaskButton';
 
 const DashboardTemplate = ({ children }: PropsWithChildren<unknown>) => {
   const dispatch = useDispatch();
@@ -37,6 +38,7 @@ const DashboardTemplate = ({ children }: PropsWithChildren<unknown>) => {
         <ProfileBox />
       </Drawer>
       <MainContent>{children}</MainContent>
+      <NewTaskButton />
     </div>
   );
 };
