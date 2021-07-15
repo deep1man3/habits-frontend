@@ -9,8 +9,8 @@ export const useStyles = makeStyles((theme) => ({
     },
     marginBottom: theme.spacing(2),
   },
-  img: {
-    height: '100px',
+  icon: {
+    fontSize: '128px',
   },
   label: {
     marginBottom: theme.spacing(2),

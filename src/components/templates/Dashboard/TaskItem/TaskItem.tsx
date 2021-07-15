@@ -33,11 +33,14 @@ const TaskItem = (task: TaskItemProps) => {
               container
               justify="center"
               alignItems="center"
-              className={classes.img}
               xs={12}
               md={2}
             >
-              {task.habit.type === 1 ? <ShowChartIcon /> : <TrendingFlatIcon />}
+              {task.habit.type === 1 ? (
+                <ShowChartIcon className={classes.icon} />
+              ) : (
+                <TrendingFlatIcon className={classes.icon} />
+              )}
             </Grid>
             <Grid item container xs={12} md={9}>
               <Grid item className={classes.label}>
