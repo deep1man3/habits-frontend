@@ -14,10 +14,18 @@ export const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('md')]: {
       fontSize: '64px',
     },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '32px',
+    },
   },
   label: {
     marginBottom: theme.spacing(2),
     width: '100%',
+    '& h4': {
+      [theme.breakpoints.down('md')]: {
+        fontSize: '1.75rem',
+      },
+    },
   },
   description: {
     width: '100%',
