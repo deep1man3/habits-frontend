@@ -1,6 +1,6 @@
 import React from 'react';
 import CentredPageTitle from '../../components/lowLevel/CentredPageTitle';
-import TasksList from '../../components/lowLevel/TasksList';
+import TasksList from '../../components/templates/Dashboard/TasksList';
 import NewTaskButton from '../../components/templates/Dashboard/NewTaskButton';
 
 const Tasks = () => (

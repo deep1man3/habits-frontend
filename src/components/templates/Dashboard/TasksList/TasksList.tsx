@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { Grid, Typography } from '@material-ui/core';
 import TaskItem from '../TaskItem';
-import TaskService from '../../../utils/services/taskService';
-import { useSelector } from '../../../store';
+import TaskService from '../../../../utils/services/taskService';
+import { useSelector } from '../../../../store';
 
 const TasksList = () => {
   const { tasks } = useSelector((state) => state.tasks);

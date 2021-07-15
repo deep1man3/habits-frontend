@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Checkbox, Grid, Paper, Typography } from '@material-ui/core';
 import { useStyles } from './TaskItem.styles';
-import WithProgressionTaskIcon from '../../assets/WithProgressionTaskIcon';
-import CommonTaskIcon from '../../assets/CommonTaskIcon';
-import { Task } from '../../../types/tasks.types';
-import DialogProgressDoneTask from '../../templates/Dashboard/DialogProgressDoneTask';
+import WithProgressionTaskIcon from '../../../assets/WithProgressionTaskIcon';
+import CommonTaskIcon from '../../../assets/CommonTaskIcon';
+import { Task } from '../../../../types/tasks.types';
+import DialogProgressDoneTask from '../DialogProgressDoneTask';
 
 type TaskItemProps = Task;
 
