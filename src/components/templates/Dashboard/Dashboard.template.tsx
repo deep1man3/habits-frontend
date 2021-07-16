@@ -8,6 +8,8 @@ import { metaActions } from '../../../store/meta/slice';
 import Logo from '../../lowLevel/Logo';
 import MenuList from './MenuList';
 import ProfileBox from './ProfileBox';
+import NewTaskButton from './NewTaskButton';
+import MainContent from './MainContent';
 
 const DashboardTemplate = ({ children }: PropsWithChildren<unknown>) => {
   const dispatch = useDispatch();
@@ -35,7 +37,8 @@ const DashboardTemplate = ({ children }: PropsWithChildren<unknown>) => {
         <Divider />
         <ProfileBox />
       </Drawer>
-      {children}
+      <MainContent>{children}</MainContent>
+      <NewTaskButton />
     </div>
   );
 };
