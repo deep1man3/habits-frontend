@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Slider } from '@material-ui/core';
 import Dialog from '../../../lowLevel/Dialog';
 import { Habit } from '../../../../types/habits.types';
+import TaskService from '../../../../utils/services/TaskService';
 
 interface DialogProgressDoneTaskProps {
   habit: Habit;
@@ -21,6 +22,18 @@ const DialogProgressDoneTask = ({
   };
 
   const onSuccess = () => {
+    TaskService.createTask(
+      {
+        done: true,
+        donePercent: value,
+        completeDate: new Date(),
+        habit: {
+          ...habit,
+        },
+      },
+      () => console.log('Данные отправлены!'),
+      () => console.log('Я уже все!')
+    );
     handleClose();
   };
 
