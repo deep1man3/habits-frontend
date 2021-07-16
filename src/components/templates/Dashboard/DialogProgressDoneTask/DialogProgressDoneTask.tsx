@@ -20,12 +20,16 @@ const DialogProgressDoneTask = ({
     setValue(+newValue);
   };
 
+  const onSuccess = () => {
+    handleClose();
+  };
+
   return (
     <Dialog
       open={open}
       title="Выполнение цели"
       description="Отметьте на сколько процентов ваша цель была выполнена"
-      onSuccess={() => console.log('success')}
+      onSuccess={onSuccess}
       onClose={handleClose}
     >
       <Slider
