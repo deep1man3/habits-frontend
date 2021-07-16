@@ -1,10 +1,8 @@
 import { makeStyles } from '@material-ui/core';
 
-export const useStyles = makeStyles(() => ({
+export const useStyles = makeStyles((theme) => ({
   root: {
+    zIndex: theme.zIndex.drawer + 1,
     boxShadow: 'none',
-  },
-  toolbar: {
-    minHeight: '56px',
   },
 }));
