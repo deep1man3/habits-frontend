@@ -5,7 +5,8 @@ export const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('md')]: {
       margin: theme.spacing(4, 0, 0, 0),
     },
-    margin: theme.spacing(2, 8),
+    padding: theme.spacing(2, 8),
     marginLeft: 240 + theme.spacing(8),
+    height: '100vh'
   },
 }));
