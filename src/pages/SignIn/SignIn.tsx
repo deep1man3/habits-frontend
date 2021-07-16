@@ -11,7 +11,7 @@ import { Visibility, VisibilityOff } from '@material-ui/icons';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import { SignInUserDirtyFormData } from '../../types/auth.types';
 import CentredPageContentWrapper from '../../components/lowLevel/CentredPageContentWrapper/CentredPageContentWrapper';
-import AuthService from '../../utils/services';
+import AuthService from '../../utils/services/AuthState';
 import SubmitFormButton from '../../components/lowLevel/SubmitFormButton';
 
 const SignIn = () => {
