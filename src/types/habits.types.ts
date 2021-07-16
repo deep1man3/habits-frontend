@@ -1,5 +1,5 @@
 export interface HabitsState {
-  habits: Habit[];
+  habits: Habit[] | null;
 }
 
 export interface Habit {
