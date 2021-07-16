@@ -6,6 +6,7 @@ import Drawer from './Drawer';
 import AppBar from '../../lowLevel/AppBar';
 import { metaActions } from '../../../store/meta/slice';
 import Logo from '../../lowLevel/Logo';
+import MenuList from './MenuList';
 
 const DashboardTemplate = ({ children }: PropsWithChildren<unknown>) => {
   const dispatch = useDispatch();
@@ -29,6 +30,7 @@ const DashboardTemplate = ({ children }: PropsWithChildren<unknown>) => {
           </Grid>
         </Toolbar>
         <Divider />
+        <MenuList />
       </Drawer>
       {children}
     </div>
