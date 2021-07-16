@@ -30,7 +30,7 @@ const SignIn = () => {
       login,
       password,
       () => {
-        history.push('/dashboard');
+        history.push('/tasks');
       },
       () => {
         setIsLoading(false);
