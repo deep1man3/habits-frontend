@@ -9,7 +9,9 @@ const HabitsList = () => {
   const { habits } = useSelector((state) => state.habits);
 
   useEffect(() => {
-    HabitsService.getHabits();
+    if (localStorage.getItem('habits:token')) {
+      HabitsService.getHabits();
+    }
   }, []);
 
   if (!habits) {
