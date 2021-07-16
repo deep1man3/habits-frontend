@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Grid, Typography } from '@material-ui/core';
 import HabitsService from '../../../../utils/services/HabitsService';
 import { useSelector } from '../../../../store';
-import CentredPageContent from '../../../lowLevel/CentredPageContent';
 import HabitItem from '../HabitItem';
 
 const HabitsList = () => {
@@ -16,9 +15,9 @@ const HabitsList = () => {
 
   if (!habits) {
     return (
-      <CentredPageContent>
+      <Grid container justify="center">
         <Typography>Ваш список задач пуст!</Typography>
-      </CentredPageContent>
+      </Grid>
     );
   }
 
