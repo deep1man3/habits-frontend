@@ -4,6 +4,8 @@ import BaseTemplate from '../../components/templates/Base';
 import Home from '../../pages/Home';
 import SignIn from '../../pages/SignIn';
 import SignUp from '../../pages/SignUp';
+import Tasks from '../../pages/Tasks';
+import DashboardTemplate from '../../components/templates/Dashboard';
 
 const Router = () => (
   <BrowserRouter>
@@ -22,6 +24,11 @@ const Router = () => (
         <BaseTemplate>
           <SignUp />
         </BaseTemplate>
+      </Route>
+      <Route exact path="/tasks">
+        <DashboardTemplate>
+          <Tasks />
+        </DashboardTemplate>
       </Route>
 
       <Route>
