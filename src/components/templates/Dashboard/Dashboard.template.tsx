@@ -1,10 +1,11 @@
 import React, { PropsWithChildren } from 'react';
-import { Hidden, IconButton } from '@material-ui/core';
+import { Divider, Grid, Hidden, IconButton, Toolbar } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { useDispatch } from 'react-redux';
 import Drawer from './Drawer';
 import AppBar from '../../lowLevel/AppBar';
 import { metaActions } from '../../../store/meta/slice';
+import Logo from '../../lowLevel/Logo';
 
 const DashboardTemplate = ({ children }: PropsWithChildren<unknown>) => {
   const dispatch = useDispatch();
@@ -21,7 +22,14 @@ const DashboardTemplate = ({ children }: PropsWithChildren<unknown>) => {
           </IconButton>
         </AppBar>
       </Hidden>
-      <Drawer>1</Drawer>
+      <Drawer>
+        <Toolbar>
+          <Grid container justify="center">
+            <Logo />
+          </Grid>
+        </Toolbar>
+        <Divider />
+      </Drawer>
       {children}
     </div>
   );
