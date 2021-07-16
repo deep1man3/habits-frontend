@@ -1,10 +1,12 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import auth from './auth';
 import meta from './meta';
+import habits from './habits';
 
 const reducer = combineReducers({
   auth,
   meta,
+  habits,
 });
 
 const store = configureStore({
