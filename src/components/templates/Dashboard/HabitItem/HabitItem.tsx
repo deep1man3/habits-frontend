@@ -46,9 +46,7 @@ const HabitItem = (habit: HabitItemProps) => {
                 <Typography variant="h4">{habit.name}</Typography>
               </Grid>
               <Grid item className={classes.description}>
-                <Typography variant="body2">
-                  {habit.description}
-                </Typography>
+                <Typography variant="body2">{habit.description}</Typography>
               </Grid>
             </Grid>
             <Grid item container xs={12} md={1} justify="center">
