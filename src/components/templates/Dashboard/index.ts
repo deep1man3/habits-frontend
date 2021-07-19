@@ -1,1 +1,1 @@
-export { default } from './Dashboard.template';
+export { default } from './Dashboard.container';
