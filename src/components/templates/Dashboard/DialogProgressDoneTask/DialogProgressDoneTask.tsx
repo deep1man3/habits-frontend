@@ -15,25 +15,21 @@ const DialogProgressDoneTask = ({
   open,
   handleClose,
 }: DialogProgressDoneTaskProps) => {
-  const [value, setValue] = useState<number>(50);
+  const [value, setValue] = useState<number>(100);
 
   const handleChange = (event: object, newValue: number | number[]) => {
     setValue(+newValue);
   };
 
   const onSuccess = () => {
-    TaskService.createTask(
-      {
-        done: true,
-        donePercent: value,
-        completeDate: new Date(),
-        habit: {
-          ...habit,
-        },
+    TaskService.createTask({
+      done: true,
+      donePercent: value,
+      completeDate: new Date(),
+      habit: {
+        ...habit,
       },
-      () => console.log('Данные отправлены!'),
-      () => console.log('Я уже все!')
-    );
+    });
     handleClose();
   };
 
