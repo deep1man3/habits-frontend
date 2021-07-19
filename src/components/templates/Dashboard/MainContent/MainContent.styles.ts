@@ -7,6 +7,6 @@ export const useStyles = makeStyles((theme) => ({
     },
     padding: theme.spacing(2, 8),
     marginLeft: 240 + theme.spacing(8),
-    height: '100vh'
+    height: '100vh',
   },
 }));

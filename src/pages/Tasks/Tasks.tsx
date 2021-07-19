@@ -4,9 +4,7 @@ import HabitsList from '../../components/templates/Dashboard/HabitsList';
 
 const Tasks = () => (
   <>
-    <CentredPageTitle>
-      Задания на сегодня
-    </CentredPageTitle>
+    <CentredPageTitle>Задания на сегодня</CentredPageTitle>
     <HabitsList />
   </>
 );
