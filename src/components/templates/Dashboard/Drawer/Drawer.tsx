@@ -18,7 +18,6 @@ const Drawer = ({
 }: PropsWithChildren<DrawerProps>) => {
   const classes = useStyles();
   const theme = useTheme();
-  const isNotMobile = useMediaQuery(theme.breakpoints.up('md'));
   const isLarge = useMediaQuery(theme.breakpoints.up('lg'));
   const dispatch = useDispatch();
   const isDrawerOpen = useSelector((state) => state.meta.isDrawerOpen);
@@ -32,7 +31,6 @@ const Drawer = ({
       onClose={() => dispatch(metaActions.toggleDrawerOpen())}
       {...rest}
     >
-      {!isLarge && isNotMobile && <Toolbar />}
       {children}
     </MuiDrawer>
   );
