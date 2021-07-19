@@ -39,4 +39,9 @@ export default class AuthService {
       password,
     });
   }
+
+  static processLogout(): void {
+    localStorage.removeItem('habits:token');
+    store.dispatch(authActions.setUser(null));
+  }
 }
