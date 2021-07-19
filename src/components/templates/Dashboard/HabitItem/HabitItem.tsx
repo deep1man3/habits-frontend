@@ -6,10 +6,13 @@ import { useStyles } from './HabitItem.styles';
 import DialogProgressDoneTask from '../DialogProgressDoneTask';
 import { Habit } from '../../../../types/habits.types';
 
-type HabitItemProps = Habit;
+interface HabitItemProps {
+  habit: Habit;
+  isDone: boolean;
+}
 
-const HabitItem = (habit: HabitItemProps) => {
-  const classes = useStyles();
+const HabitItem = ({ habit, isDone }: HabitItemProps) => {
+  const classes = useStyles(isDone)();
 
   const [isDialogProgressDoneTask, setIsDialogProgressDoneTask] =
     useState<boolean>(false);
@@ -17,7 +20,7 @@ const HabitItem = (habit: HabitItemProps) => {
     setIsDialogProgressDoneTask((prev) => !prev);
 
   return (
-    <>
+    <Grid item className={classes.root}>
       <Grid container justify="center">
         <Paper className={classes.paper}>
           <Grid
@@ -52,18 +55,22 @@ const HabitItem = (habit: HabitItemProps) => {
             <Grid item container xs={12} md={1} justify="center">
               <Checkbox
                 color="primary"
+                checked={isDone}
+                disabled={isDone}
                 onChange={toggleDialogProgressDoneTask}
               />
             </Grid>
           </Grid>
         </Paper>
       </Grid>
-      <DialogProgressDoneTask
-        habit={habit}
-        open={isDialogProgressDoneTask}
-        handleClose={toggleDialogProgressDoneTask}
-      />
-    </>
+      {!isDone && (
+        <DialogProgressDoneTask
+          habit={habit}
+          open={isDialogProgressDoneTask}
+          handleClose={toggleDialogProgressDoneTask}
+        />
+      )}
+    </Grid>
   );
 };
 
