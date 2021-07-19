@@ -2,7 +2,6 @@ import React, { PropsWithChildren } from 'react';
 import {
   Drawer as MuiDrawer,
   DrawerProps,
-  Toolbar,
   useMediaQuery,
   useTheme,
 } from '@material-ui/core';
