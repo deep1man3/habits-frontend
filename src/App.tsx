@@ -1,13 +1,14 @@
 import React from 'react';
-import { CssBaseline } from '@material-ui/core';
 import { Provider } from 'react-redux';
 import store from './store';
 import Router from './routing';
+import Preloader from './components/lowLevel/Preloader';
 
 const App = () => (
   <Provider store={store}>
-    <CssBaseline />
-    <Router />
+    <Preloader>
+      <Router />
+    </Preloader>
   </Provider>
 );
 
