@@ -7,7 +7,7 @@ export const useStyles = makeStyles((theme) => ({
       padding: theme.spacing(0),
     },
     padding: theme.spacing(2, 8),
-    marginLeft: 240 + theme.spacing(8),
+    marginLeft: 240 + theme.spacing(6),
     height: '100vh',
   },
 }));
