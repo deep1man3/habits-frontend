@@ -44,4 +44,18 @@ export default class AuthService {
     localStorage.removeItem('habits:token');
     store.dispatch(authActions.setUser(null));
   }
+
+  static getUserByParseToken(): void {
+    const b64Token = localStorage.getItem('habits:token');
+
+    if (b64Token) {
+      const JSONToken = Buffer.from(b64Token, 'base64').toString();
+      try {
+        const user = JSON.parse(JSONToken);
+        store.dispatch(authActions.setUser(user));
+      } catch (e) {
+        console.error('Preloader: ', e);
+      }
+    }
+  }
 }
