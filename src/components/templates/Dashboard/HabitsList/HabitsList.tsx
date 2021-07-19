@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Grid, Typography } from '@material-ui/core';
 import { useSelector } from '../../../../store';
 import HabitItem from '../HabitItem';
 
 const HabitsList = () => {
+  const [idCompletedHabits, setIdCompletedHabits] = useState<Array<number>>([]);
   const { habits } = useSelector((state) => state.habits);
+  const { tasks } = useSelector((state) => state.tasks);
+
+  useEffect(() => {
+    setIdCompletedHabits(tasks?.map((task) => task.habit.id) || []);
+  }, [tasks]);
 
   if (!habits) {
     return (
@@ -18,7 +24,13 @@ const HabitsList = () => {
     <Grid container justify="center">
       {habits &&
         habits.length > 0 &&
-        habits.map((task) => <HabitItem key={task.id} {...task} />)}
+        habits.map((habit) => (
+          <HabitItem
+            key={habit.id}
+            habit={habit}
+            isDone={idCompletedHabits.includes(habit.id)}
+          />
+        ))}
     </Grid>
   );
 };
