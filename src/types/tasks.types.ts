@@ -8,6 +8,6 @@ export interface Task {
   id: number;
   done: boolean;
   donePercent: number | null;
-  completeDate: Date | null;
+  completeDate: string;
   habit: Habit;
 }
