@@ -7,6 +7,7 @@ import SignUp from '../../pages/SignUp';
 import Tasks from '../../pages/Tasks';
 import DashboardTemplate from '../../components/templates/Dashboard';
 import TasksList from '../../pages/Tasks/TaskList';
+import TaskAdd from '../../pages/Tasks/TaskAdd';
 
 const Router = () => (
   <BrowserRouter>
@@ -34,6 +35,11 @@ const Router = () => (
       <Route exact path="/tasks-list">
         <DashboardTemplate>
           <TasksList />
+        </DashboardTemplate>
+      </Route>
+      <Route exact path="/add-task">
+        <DashboardTemplate>
+          <TaskAdd />
         </DashboardTemplate>
       </Route>
 
