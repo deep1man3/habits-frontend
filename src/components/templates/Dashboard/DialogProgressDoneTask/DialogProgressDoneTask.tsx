@@ -25,7 +25,7 @@ const DialogProgressDoneTask = ({
     TaskService.createTask({
       done: true,
       donePercent: value,
-      completeDate: new Date(),
+      completeDate: new Date().toDateString(),
       habit: {
         ...habit,
       },
