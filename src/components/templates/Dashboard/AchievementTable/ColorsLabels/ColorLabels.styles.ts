@@ -5,9 +5,9 @@ export const useStyles = makeStyles((theme) => ({
     width: '80%',
     [theme.breakpoints.down('sm')]: {
       width: '100%',
-      justifyContent: 'center',
-      padding: theme.spacing(2, 8),
+      padding: theme.spacing(2, 4),
     },
+    maxWidth: '1024px',
     padding: theme.spacing(2, 0),
   },
   colorBox: {
@@ -23,7 +23,7 @@ export const useStyles = makeStyles((theme) => ({
   labelItem: {
     [theme.breakpoints.down('sm')]: {
       justifyContent: 'flex-start',
-      marginBottom: theme.spacing(1)
+      marginBottom: theme.spacing(1),
     },
     justifyContent: 'center',
   },
