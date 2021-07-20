@@ -14,6 +14,8 @@ const ColorsLabels = () => {
             item
             container
             md={3}
+            sm={6}
+            xs={12}
             justify="center"
             key={key}
             className={classes.labelItem}

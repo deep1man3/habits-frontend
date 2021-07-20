@@ -4,9 +4,9 @@ export const useStyles = makeStyles((theme) => ({
   root: {
     width: '80%',
     [theme.breakpoints.down('sm')]: {
-      width: '80%',
+      width: '100%',
       justifyContent: 'center',
-      padding: theme.spacing(2, 4),
+      padding: theme.spacing(2, 8),
     },
     padding: theme.spacing(2, 0),
   },
@@ -21,8 +21,10 @@ export const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(1),
   },
   labelItem: {
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
       justifyContent: 'flex-start',
+      marginBottom: theme.spacing(1)
     },
+    justifyContent: 'center',
   },
 }));
