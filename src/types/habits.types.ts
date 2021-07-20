@@ -1,5 +1,6 @@
 export interface HabitsState {
   habits: Habit[] | null;
+  habitsIdCompletedToday: number[];
 }
 
 export interface Habit {
