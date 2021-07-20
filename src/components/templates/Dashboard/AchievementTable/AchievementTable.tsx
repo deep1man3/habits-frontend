@@ -74,7 +74,7 @@ const AchievementTable = () => {
       <Paper className={classes.root}>
         <DxGrid rows={rows} columns={columns}>
           <SortingState
-            defaultSorting={[{ columnName: 'completeDate', direction: 'asc' }]}
+            defaultSorting={[{ columnName: 'completeDate', direction: 'desc' }]}
           />
           <IntegratedSorting />
           <Table
