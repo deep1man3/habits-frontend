@@ -8,6 +8,5 @@ export const useStyles = makeStyles((theme) => ({
     },
     padding: theme.spacing(2, 8),
     marginLeft: 240,
-    height: '100vh',
   },
 }));
