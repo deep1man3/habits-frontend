@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
   Grid as DxGrid,
   Table,
@@ -16,7 +16,6 @@ import { useSelector } from '../../../../store';
 import { formatDate, getColorOfPercent } from './AchievementTable.helpers';
 import ColorsLabels from './ColorsLabels';
 import { useStyles } from './AchievementTable.styles';
-import TaskService from '../../../../utils/services/TaskService';
 import { HabitType } from '../../../../types/habits.types';
 
 export interface TaskListRow {
@@ -25,11 +24,10 @@ export interface TaskListRow {
   completeDate: string;
   name: string;
   type: HabitType;
-  dateTo: Date;
 }
 
 const AchievementTable = () => {
-
+  const [rows, setRows] = useState<TaskListRow[] | []>([]);
   const classes = useStyles();
   const { tasks } = useSelector((state) => state.tasks);
 
@@ -39,15 +37,22 @@ const AchievementTable = () => {
     { name: 'completeDate', title: 'Дата' },
   ];
 
-  const rows: TaskListRow[] | [] =
-    tasks?.map((task) => ({
-      type: task.habit.type,
-      name: task.habit.name,
-      dateTo: task.habit.dateTo,
-      done: task.done,
-      donePercent: task.donePercent,
-      completeDate: task.completeDate,
-    })) || [];
+  useEffect(() => {
+    setRows(
+      tasks?.reduce((result: TaskListRow[], task) => {
+        if (task.completeDate) {
+          result.push({
+            done: task.done,
+            donePercent: task.donePercent,
+            completeDate: task.completeDate,
+            name: task.habit.name,
+            type: task.habit.type,
+          });
+        }
+        return result;
+      }, []) || []
+    );
+  }, [tasks]);
 
   const DefinitionsColorRowDone = useCallback(
     (props) => {

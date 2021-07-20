@@ -33,6 +33,7 @@ export const getColorOfPercent = (donePercent: number) => {
 };
 
 export const formatDate = (value: string) => {
+  if (value === null) return null;
   const date = value.split('T')[0].split('-');
   const addZero = (num: string) => (+num > 9 ? +num : `0${+num}`);
 
