@@ -22,7 +22,7 @@ import { HabitType } from '../../../../types/habits.types';
 export interface TaskListRow {
   done: boolean;
   donePercent: number | null;
-  completeDate: Date | null;
+  completeDate: string;
   name: string;
   type: HabitType;
   dateTo: Date;
