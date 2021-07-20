@@ -5,10 +5,10 @@ import TaskService from '../../../utils/services/TaskService';
 
 const DashboardContainer = ({ children }: PropsWithChildren<unknown>) => {
   useEffect(() => {
-    // Получения habits пользователя
-    HabitService.getHabits();
     // Получения tasks пользователя
     TaskService.getTasks();
+    // Получения habits пользователя
+    HabitService.getHabits();
   }, []);
 
   return <DashboardTemplate>{children}</DashboardTemplate>;
