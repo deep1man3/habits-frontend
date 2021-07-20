@@ -3,12 +3,14 @@ import auth from './auth';
 import meta from './meta';
 import habits from './habits';
 import tasks from './tasks';
+import measures from './measures';
 
 const reducer = combineReducers({
   auth,
   meta,
   habits,
   tasks,
+  measures,
 });
 
 const store = configureStore({
