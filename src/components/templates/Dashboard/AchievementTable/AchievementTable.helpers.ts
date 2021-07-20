@@ -33,12 +33,8 @@ export const getColorOfPercent = (donePercent: number) => {
 };
 
 export const formatDate = (value: string) => {
-  const date = new Date(Date.parse(value));
-  const day = date.getDate();
-  const month = date.getMonth();
-  const year = date.getFullYear();
+  const date = value.split('T')[0].split('-');
+  const addZero = (num: string) => (+num > 9 ? +num : `0${+num}`);
 
-  const addZero = (num: number) => (num > 9 ? num : `0${num}`);
-
-  return `${addZero(day)}.${addZero(month)}.${year}`;
+  return `${addZero(date[2])}.${addZero(date[1])}.${date[0]}`;
 };
