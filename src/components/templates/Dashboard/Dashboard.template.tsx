@@ -12,7 +12,7 @@ import MenuIconButton from './MenuIconButton';
 const DashboardTemplate = ({ children }: PropsWithChildren<unknown>) => (
   <div>
     <Hidden lgUp>
-      <AppBar position="relative">
+      <AppBar position="fixed">
         <MenuIconButton />
       </AppBar>
     </Hidden>
