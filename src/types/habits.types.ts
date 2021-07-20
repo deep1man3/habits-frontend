@@ -18,3 +18,15 @@ export enum HabitType {
   Common,
   WithProgress,
 }
+
+export type CreateHabitDirtyFormData = {
+  id: number;
+  name: string;
+  description: string;
+  type: HabitType;
+  dateTo: Date;
+  increasePerStep?: number;
+  increaseInterval?: number;
+  count?: number;
+  measure?: number;
+};
