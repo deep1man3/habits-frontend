@@ -3,3 +3,7 @@ export interface Measure {
   fullName: string;
   shortName: string;
 }
+
+export interface MeasureState {
+  measures: Measure[]  | null;
+}
