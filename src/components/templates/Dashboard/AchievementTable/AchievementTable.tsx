@@ -29,9 +29,6 @@ export interface TaskListRow {
 }
 
 const AchievementTable = () => {
-  useEffect(() => {
-    TaskService.getTasks();
-  }, []);
 
   const classes = useStyles();
   const { tasks } = useSelector((state) => state.tasks);
