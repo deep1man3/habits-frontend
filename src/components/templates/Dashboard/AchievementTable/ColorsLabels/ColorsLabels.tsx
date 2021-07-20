@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Paper, Box, Typography } from '@material-ui/core';
 import { ColorLabels } from '../AchievementTable.helpers';
-import { useStyles } from './ColorLabels.styles';
+import { useStyles } from './ColorsLabels.styles';
 
 const ColorsLabels = () => {
   const classes = useStyles();

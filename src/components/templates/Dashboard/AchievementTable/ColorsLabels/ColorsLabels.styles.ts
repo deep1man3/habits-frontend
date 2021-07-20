@@ -7,7 +7,7 @@ export const useStyles = makeStyles((theme) => ({
       width: '100%',
       padding: theme.spacing(2, 4),
     },
-    maxWidth: '1024px',
+    maxWidth: '924px',
     padding: theme.spacing(2, 0),
   },
   colorBox: {
