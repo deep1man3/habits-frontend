@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
+  Box,
   FormControl,
   Grid,
   InputLabel,
@@ -150,7 +151,14 @@ const NewTaskForm = () => {
                   >
                     {measures?.map((measure) => (
                       <MenuItem key={measure.id} value={measure.id}>
-                        {measure.fullName}
+                        <Box
+                          display="inline-flex"
+                          justifyContent="space-between"
+                          width={1}
+                        >
+                          {measure.fullName}
+                          <Box color="#777">{measure.shortName}</Box>
+                        </Box>
                       </MenuItem>
                     ))}
                   </Select>
