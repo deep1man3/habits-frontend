@@ -1,9 +1,8 @@
 import { AxiosPromise } from 'axios';
-import {} from 'react-router-dom';
-import $api from '../api';
-import { AuthResponseDTO } from '../../types/DTO/AuthResponseDTO';
-import store from '../../store';
-import { authActions } from '../../store/auth/slice';
+import $api from '../../api';
+import { AuthResponseDTO } from '../../../types/DTO/AuthResponseDTO';
+import store from '../../../store';
+import { authActions } from '../../../store/auth/slice';
 
 export default class AuthService {
   static async processLogin(
@@ -39,5 +38,24 @@ export default class AuthService {
       email,
       password,
     });
+  }
+
+  static processLogout(): void {
+    localStorage.removeItem('habits:token');
+    store.dispatch(authActions.setUser(null));
+  }
+
+  static getUserByParseToken(): void {
+    const b64Token = localStorage.getItem('habits:token');
+
+    if (b64Token) {
+      const JSONToken = Buffer.from(b64Token, 'base64').toString();
+      try {
+        const user = JSON.parse(JSONToken);
+        store.dispatch(authActions.setUser(user));
+      } catch (e) {
+        console.error('Preloader: ', e);
+      }
+    }
   }
 }

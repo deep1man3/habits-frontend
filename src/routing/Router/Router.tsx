@@ -1,29 +1,52 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Template from '../../components/templates';
+import BaseTemplate from '../../components/templates/Base';
 import Home from '../../pages/Home';
 import SignIn from '../../pages/SignIn';
 import SignUp from '../../pages/SignUp';
+import Tasks from '../../pages/Tasks';
+import DashboardTemplate from '../../components/templates/Dashboard';
+import TasksList from '../../pages/Tasks/TaskList';
+import TaskAdd from '../../pages/Tasks/TaskAdd';
 
 const Router = () => (
   <BrowserRouter>
-    <Template>
-      <Switch>
-        <Route exact path="/">
+    <Switch>
+      <Route exact path="/">
+        <BaseTemplate>
           <Home />
-        </Route>
-        <Route exact path="/sign-in">
+        </BaseTemplate>
+      </Route>
+      <Route exact path="/sign-in">
+        <BaseTemplate>
           <SignIn />
-        </Route>
-        <Route exact path="/sign-up">
+        </BaseTemplate>
+      </Route>
+      <Route exact path="/sign-up">
+        <BaseTemplate>
           <SignUp />
-        </Route>
+        </BaseTemplate>
+      </Route>
+      <Route exact path="/tasks">
+        <DashboardTemplate>
+          <Tasks />
+        </DashboardTemplate>
+      </Route>
+      <Route exact path="/tasks-list">
+        <DashboardTemplate>
+          <TasksList />
+        </DashboardTemplate>
+      </Route>
+      <Route exact path="/add-task">
+        <DashboardTemplate>
+          <TaskAdd />
+        </DashboardTemplate>
+      </Route>
 
-        <Route>
-          <h1>NO MATCH</h1>
-        </Route>
-      </Switch>
-    </Template>
+      <Route>
+        <h1>NO MATCH</h1>
+      </Route>
+    </Switch>
   </BrowserRouter>
 );
 
